@@ -1,5 +1,28 @@
 .container {
     width: 500px;
+    height: 600px;
+    position: absolute;
+
+}
+
+.sky {
+    background-color: #00bfff;
+    width: 500px;
     height: 500px;
     position: absolute;
+}
+
+.ground {
+    width: 500px;
+    height: 100px;
+    background-color: #00ff00;
+    position: absolute;
+    top: 500px;
+}
+
+.hunter{
+    background-color: red;
+    position: absolute;
+    height: 25px;
+    width: 25px;
 }
