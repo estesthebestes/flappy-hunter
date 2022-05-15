@@ -15,8 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let gameTimer = setInterval(startGame, 20)
 
     function jump() {
-        hunterBottom += 50
+    
+        if (hunterBottom < 430) hunterBottom += 50
         hunter.style.bottom = hunterBottom + 'px'
+        console.log(hunterBottom)
     }
     document.addEventListener('keydown', jump)
     
