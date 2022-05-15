@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+}
+
+
+
 .container {
     width: 500px;
     height: 600px;
@@ -14,7 +20,7 @@
 
 .ground {
     width: 500px;
-    height: 100px;
+    height: 150px;
     background-color: #00ff00;
     position: absolute;
     top: 500px;
@@ -25,4 +31,11 @@
     position: absolute;
     height: 25px;
     width: 25px;
+}
+
+.pipe {
+    background-color: orange;
+    position: absolute;
+    height: 150px;
+    width: 40px;
 }
