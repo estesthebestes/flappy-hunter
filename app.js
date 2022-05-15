@@ -4,10 +4,10 @@ document.addEventListener('DOMcContentLoaded', () => {
     const ground = document.querySelector('.ground')
 
     let hunterLeft = 200
-    let hunterBottom = 23
+    let hunterBottom = 100
 
     function startGame(){
-        hunter.style.bottom = hunterBottom + 'px'
+        hunter.style.left = hunterLeft + 'px'
     }
     startGame()
-})
+});
