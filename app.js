@@ -5,10 +5,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let hunterLeft = 100
     let hunterBottom = 100
+    let gravity = 2 
 
     function startGame() {
+        hunterBottom -= gravity
         hunter.style.bottom = hunterBottom + 'px'
         hunter.style.left = hunterLeft + 'px'
     }
-    startGame()
+    let gameTimer = setInterval(startGame, 20)
+
+    function jump() {
+        hunterBottom += 50
+        hunter.style.bottom = hunterBottom + 'px'
+    }
+    document.addEventListener('keydown', jump)
+    
 })
