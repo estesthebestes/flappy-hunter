@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hunter.style.bottom = hunterBottom + 'px'
         hunter.style.left = hunterLeft + 'px'
     }
-    let gameTimer = setInterval(startGame, 20)
+    let gameTimerId = setInterval(startGame, 20)
 
     function jumpButton(e) {
         if (e.keyCode === 32) {
@@ -38,16 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pipe.style.bottom = pipeBottom + 'px'
 
         function movePipe() {
-            pipeLeft -= 1.5
+            pipeLeft -= 2
             pipe.style.left = pipeLeft + 'px'
 
             if (pipeLeft === -40) {
-                clearInterval(gameTimer)
+                clearInterval(timerId)
                 game.removeChild(pipe)
             }
         }
-        let gameTimer = setInterval(movePipe, 20)
+        let timerId = setInterval(movePipe, 20)
         setTimeout(makePipe, 2000)
     }
     makePipe()
+
 })
