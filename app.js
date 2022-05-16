@@ -3,9 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const game = document.querySelector('.container')
     const ground = document.querySelector('.ground')
 
-    let hunterLeft = 100
-    let hunterBottom = 100
+    let hunterLeft = 250
+    let hunterBottom = 150
     let gravity = 2 
+    let isGameOver = false
 
     function startGame() {
         hunterBottom -= gravity
@@ -45,10 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 clearInterval(timerId)
                 game.removeChild(pipe)
             }
+            if (
+                pipeLeft > 200 && pipeLeft < 280  && hunterLeft === 250 && 
+                hunterBottom === 0 
+                ) {
+                gameOver() 
+            }
         }
         let timerId = setInterval(movePipe, 20)
-        setTimeout(makePipe, 2000)
+        if (!isGameOver) setTimeout(makePipe, 2000)
     }
     makePipe()
+
+    function gameOver() {
+        clearInterval(gameTimerId)
+        isGameOver = true
+        document.removeEventListener('keyup', jumpButton)
+    }
 
 })
