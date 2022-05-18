@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let hunterLeft = 250
     let hunterBottom = 150
     let gravity = 2 
-    let isGameOver = false
+    let playerLoss = false
+    let spaceBetweenTopAndBottom = 300 
 
     function startGame() {
         hunterBottom -= gravity
@@ -32,36 +33,50 @@ document.addEventListener('DOMContentLoaded', () => {
         let pipeLeft = 460
         let randomHeight = Math.random() * 100
         let pipeBottom = randomHeight
+        let pipeTopLeft = 460
+        let pipeTopBottom = randomHeight
+        
         const pipe = document.createElement('div')
+        const pipeTop = document.createElement('div')
+       if (!playerLoss){
         pipe.classList.add('pipe')
+        pipeTop.classList.add('pipe-top')
+    } 
         game.appendChild(pipe)
+        game.appendChild(pipeTop)
+
         pipe.style.left = pipeLeft + 'px'
+        pipeTop.style.left = pipeTopLeft + 'px' 
         pipe.style.bottom = pipeBottom + 'px'
+        pipeTop.style.bottom = pipeTopBottom + spaceBetweenTopAndBottom + 'px'
 
         function movePipe() {
             pipeLeft -= 2
+            pipeTopLeft -= 2
             pipe.style.left = pipeLeft + 'px'
+            pipeTop.style.left = pipeLeft + 'px'
 
             if (pipeLeft === -40) {
                 clearInterval(timerId)
                 game.removeChild(pipe)
             }
             if (
-                pipeLeft > 200 && pipeLeft < 280  && hunterLeft === 250 && 
+                pipeLeft > 220 && pipeLeft < 270 && hunterLeft === 250 && hunterBottom < pipeBottom + 40 || 
                 hunterBottom === 0 
                 ) {
                 gameOver() 
             }
         }
         let timerId = setInterval(movePipe, 20)
-        if (!isGameOver) setTimeout(makePipe, 2000)
+        if (!playerLoss) setTimeout(makePipe, 2000)
     }
     makePipe()
 
     function gameOver() {
         clearInterval(gameTimerId)
-        isGameOver = true
+        playerLoss = true
         document.removeEventListener('keyup', jumpButton)
     }
+
 
 })
