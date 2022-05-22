@@ -33,14 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let pipeLeft = 460
         let randomHeight = Math.random() * 100
         let pipeBottom = randomHeight
-        let pipeTopLeft = 460  
+        let pipeTopLeft = 460
         let pipeTopBottom = randomHeight
-
-  
-        
-
-
-
         
         const pipe = document.createElement('div')
         const pipeTop = document.createElement('div')
@@ -72,38 +66,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 ) {
                 gameOver() 
             }
-
-
         }
         let timerId = setInterval(movePipe, 20)
-        
-         
-
-        function score() { 
-            let scoreCount = 0 {
-                setInterval(scoreCount, 2000)
-                scoreCount++
-            }
-        }
-    
-        
-
-    
-         
         if (!playerLoss) setTimeout(makePipe, 2000)
-            if (!playerLoss) {
-        }
-       
-       
-        
-
-
     }
     makePipe()
-      
-    
-    
-        function gameOver() {
+
+    function gameOver() {
         clearInterval(gameTimerId)
         playerLoss = true
         document.removeEventListener('keyup', jumpButton)
