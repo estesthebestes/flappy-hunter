@@ -65,18 +65,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 hunterBottom === 0 
                 ) {
                 gameOver() 
-            }
+                
+               
+            } 
+            
         }
         let timerId = setInterval(movePipe, 20)
         if (!playerLoss) setTimeout(makePipe, 2000)
     }
-    makePipe()
+    makePipe() 
+
+    let score = 0;
+    if (!playerLoss) {
+        setInterval(function() {
+            score++
+            console.log(score)
+        }, 2000)
+}
+ 
 
     function gameOver() {
         clearInterval(gameTimerId)
         playerLoss = true
         document.removeEventListener('keyup', jumpButton)
     }
-
 
 })
