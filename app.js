@@ -31,14 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     function makePipe() {
         let pipeLeft = 460
-        let randomHeight = Math.random() * 100
+        let randomHeight = Math.random() * 120 
         let pipeBottom = randomHeight
         let pipeTopLeft = 460
         let pipeTopBottom = randomHeight
         
         const pipe = document.createElement('div')
         const pipeTop = document.createElement('div')
-       if (!playerLoss){
+       
+        if (!playerLoss){
         pipe.classList.add('pipe')
         pipeTop.classList.add('pipe-top')
     } 
@@ -59,9 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pipeLeft === -40) {
                 clearInterval(timerId)
                 game.removeChild(pipe)
+                game.removeChild(pipeTop)
             }
             if (
-                pipeLeft > 220 && pipeLeft < 270 && hunterLeft === 250 && hunterBottom < pipeBottom + 40 || 
+                pipeLeft > 220 && pipeLeft < 270 && hunterLeft === 250 && 
+                (hunterBottom < pipeBottom + 40 || hunterBottom > pipeTopBottom + spaceBetweenTopAndBottom - 150 )||
                 hunterBottom === 0 
                 ) {
                 gameOver() 
